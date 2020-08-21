@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h3>Go ahead and create a dose of this fabulous beverage</h3>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <div class="buttons d-flex">
+    <div class="pr-4">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+    <% end %>
+    <div>
+      <%= link_to "Go back", cocktails_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container" style="margin: 50px auto">
+  <div class="row" style="text-align: center">
+    <h1 class="col-12">Take a peek at the best Cocktails in Le Wagon</h1>
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-12">
+        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+      </div>
+    <% end %>
+    <div class="col-12 mt-4"><%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-danger btn-lg" %></div>
+  </div>
+</div>
+

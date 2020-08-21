@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <div>
+   <h1>Check out <strong><%= @cocktail.name %></strong></h1>
+  </div>
+  <div class="card">
+  <div class="mb-2 ml-2" style="color: purple"><h2>Find your ingredients:</h2></div>
+  <% if @cocktail.doses.empty? %>
+    <div><h5 class="ml-2" style="color:red" >Sorry love! You have no ingredients added to your cocktail (yet!)</h5></div>
+    <% else %>
+      <% @cocktail.doses.each do |dose| %>
+      <div><h5 class="ml-2"><%= dose.ingredient.name %> - <%= dose.description %> (<%= link_to "Remove", dose_path(dose), method: :delete %>)</h5></div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+
+
+<%= render 'doses/new', cocktail: @cockail, dose: @dose %>
+s
