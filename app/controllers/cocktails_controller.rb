@@ -30,7 +30,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name) ## add :photo later
+    params.require(:cocktail).permit(:name, :photo) # cloudinary
   end
 
   def fetch_cocktail

@@ -5,6 +5,7 @@ ruby '2.6.6'
 
 # Gemfile
 gem 'dotenv-rails', groups: [:development, :test] # cloudinary
+gem 'cloudinary', '~> 1.12.0' # cloudinary
 gem 'faker'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
