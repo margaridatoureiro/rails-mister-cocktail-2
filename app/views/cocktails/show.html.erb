@@ -5,7 +5,7 @@
     <div class="card p-4">
       <div style="display:block; margin:15px"> <!--- include auto to center the picture --->
         <% if @cocktail.photo.attached? %>
-        <%= cl_image_tag @cocktail.photo.key, height: 800, width: 600, crop: :fill %>
+        <%= cl_image_tag @cocktail.photo.key, height: 800, width: 600, crop: :fill %> <!-- another option <div id="cocktail-picture" style="background-image: url(<%= url_for(@cocktail.photo) %>)"></div> -->
         <% else %>
         <%= image_tag "cocktail", height: 500, width: 700, crop: :fill %>
         <% end %>
@@ -25,4 +25,4 @@
 
 
 <%= render 'doses/new', cocktail: @cockail, dose: @dose %>
-s
+
