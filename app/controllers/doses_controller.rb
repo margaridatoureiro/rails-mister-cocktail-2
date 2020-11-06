@@ -11,14 +11,14 @@ class DosesController < ApplicationController
     @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
     if @dose.save
-      redirect_to cocktail_path(@cocktail)
+      redirect_to cocktail_path(@cocktail), notice: 'cool man'
     else
-      render 'cocktails/new'
+      render 'cocktails/show' ## TRY THIS
     end
   end
 
   def destroy
-    fetch_dose
+    fetch_dose # we don't fetch the cocktail id (will break because of routes)
     @dose.destroy
     redirect_to cocktail_path(@dose.cocktail)
   end

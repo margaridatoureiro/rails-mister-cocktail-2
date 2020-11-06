@@ -7,22 +7,24 @@
         <% if @cocktail.photo.attached? %>
         <%= cl_image_tag @cocktail.photo.key, height: 800, width: 600, crop: :fill %> <!-- another option <div id="cocktail-picture" style="background-image: url(<%= url_for(@cocktail.photo) %>)"></div> -->
         <% else %>
-        <div style="height:800; width:600"><img src="https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1439,w_2560,x_0,y_0/dpr_1.5/c_limit,w_1044/fl_lossy,q_auto/v1492187024/articles/2015/01/11/beach-resort-cocktails-suck-let-s-make-them-brilliant/150110-kulp-tragic-beach-cocktails-tease_zdvdkj" alt=""></div>
+         <%= image_tag "cocktail.jpg", height: 500, width: 700, crop: :fill %>
+        <!-- <img src="https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1439,w_2560,x_0,y_0/dpr_1.5/c_limit,w_1044/fl_lossy,q_auto/v1492187024/articles/2015/01/11/beach-resort-cocktails-suck-let-s-make-them-brilliant/150110-kulp-tragic-beach-cocktails-tease_zdvdkj" alt="" height="600" width="850"> -->
         <% end %>
       </div>
       <div class="mb-2 ml-2" style="color: purple"><h2>Find your ingredients:</h2></div>
       <% if @cocktail.doses.empty? %>
         <div><h5 class="ml-2" style="color:red" >Sorry love! You have no ingredients added to your cocktail (yet!)</h5></div>
       <% else %>
-          <% @cocktail.doses.each do |dose| %>
-            <div><h5 class="ml-2"><%= dose.ingredient.name %> - <%= dose.description %> (<%= link_to "Remove", dose_path(dose), method: :delete %>)</h5></div>
-          <% end %>
+        <% @cocktail.doses.each do |dose| %>
+          <div><h5 class="ml-2"><%= dose.ingredient.name %> - <%= dose.description %> (<%= link_to "Remove", dose_path(dose), method: :delete %>)</h5></div>
+            <div class="notice"><%= notice %></div>
+        <% end %>
       <% end %>
     </div>
 
   </div>
+    <%= render 'doses/new', cocktail: @cockail, dose: @dose %>
 </div>
 
 
-<%= render 'doses/new', cocktail: @cockail, dose: @dose %>
 
